@@ -1,0 +1,88 @@
+# ============================================================
+# Trading Strategies Configuration
+# ============================================================
+
+data:
+  symbols:
+    sp500: "^GSPC"
+    nasdaq: "^IXIC"
+    dowjones: "^DJI"
+    dax: "^GDAXI"
+  start_date: "2014-01-01"
+  end_date: "2024-12-31"
+  intervals:
+    - "15m"   # M15 — yfinance only provides ~60 days of 15m data
+    - "1h"    # H1  — yfinance provides ~730 days of 1h data
+    - "1d"    # D1  — fallback for long history
+  primary_interval: "1h"
+
+splits:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+costs:
+  spread_pips: 1.0
+  commission_per_trade: 0.0  # included in spread for CFDs
+
+targets:
+  sharpe_ratio: 1.2
+  profit_factor: 1.5
+  max_drawdown_pct: 15.0
+
+strategy_a:
+  name: "TrendFollowing"
+  type: "trend"
+  ema_fast_range: [8, 21]
+  ema_slow_range: [34, 89]
+  atr_period: 14
+  atr_sl_multiplier: 1.5
+  atr_tp_multiplier: 3.0
+  adx_threshold: 25
+
+strategy_b:
+  name: "MeanReversion"
+  type: "mean_reversion"
+  rsi_period_range: [7, 21]
+  rsi_oversold: 30
+  rsi_overbought: 70
+  bb_period_range: [14, 30]
+  bb_std_range: [1.5, 2.5]
+  atr_period: 14
+  atr_sl_multiplier: 1.0
+  atr_tp_multiplier: 2.0
+
+strategy_c:
+  name: "VolatilityBreakout"
+  type: "volatility"
+  orb_minutes: 60
+  squeeze_bb_period: 20
+  squeeze_kc_period: 20
+  squeeze_bb_mult: 2.0
+  squeeze_kc_mult: 1.5
+  atr_period: 14
+  atr_sl_multiplier: 1.5
+  atr_tp_multiplier: 2.5
+
+optimization:
+  n_trials: 200
+  n_jobs: 1
+  timeout: 3600
+  sampler: "TPESampler"
+  pruner: "MedianPruner"
+
+walk_forward:
+  n_splits: 5
+  train_ratio: 0.7
+
+monte_carlo:
+  n_simulations: 1000
+  confidence_level: 0.95
+
+rl_training:
+  total_timesteps: 500_000
+  learning_rate: 0.0003
+  batch_size: 64
+  n_steps: 2048
+  gamma: 0.99
+  algorithm: "PPO"
