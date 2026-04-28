@@ -34,11 +34,20 @@ CONFIG = {
     "interval": "1d",
     "strategy_type": "volatility",
 
+    # Feature engineering params (from Optuna optimization — 500 trials)
     "feature_params": {
-        "bb_period": 20,
-        "kc_period": 20,
-        "bb_mult": 2.0,
-        "kc_mult": 1.5,
+        "bb_period": 15,
+        "kc_period": 29,
+        "bb_mult": 1.52,
+        "kc_mult": 1.27,
+    },
+
+    # Strategy params (Optuna best on S&P 500 daily, cross-validated on 4 indices)
+    "strategy_params": {
+        "squeeze_lookback": 5,
+        "atr_sl_mult": 1.31,
+        "atr_tp_mult": 3.41,
+        "vol_ratio_threshold": 0.82,
     },
 
     "algorithm": "PPO",

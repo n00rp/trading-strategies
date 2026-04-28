@@ -35,10 +35,19 @@ CONFIG = {
     "interval": "1d",
     "strategy_type": "trend",
 
-    # Feature engineering params (from Optuna best)
+    # Feature engineering params (from Optuna optimization — 200 trials)
     "feature_params": {
         "ema_fast": 12,
-        "ema_slow": 50,
+        "ema_slow": 37,
+    },
+
+    # Strategy params (Optuna best on S&P 500 daily)
+    "strategy_params": {
+        "ema_fast": 12,
+        "ema_slow": 37,
+        "adx_threshold": 16.24,
+        "atr_sl_mult": 2.73,
+        "atr_tp_mult": 1.73,
     },
 
     # RL training hyperparameters
