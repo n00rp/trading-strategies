@@ -65,10 +65,18 @@ def optimize_trend_following(
         if len(rets_val) < 10:
             return -10.0
 
-        metrics_val = compute_metrics(rets_val)
+        # Estimate trading days from index
+        if hasattr(val.index, 'date'):
+            n_val_days = len(set(val.index.date))
+            n_train_days = len(set(train.index.date))
+        else:
+            n_val_days = len(val)
+            n_train_days = len(train)
+
+        metrics_val = compute_metrics(rets_val, n_trading_days=n_val_days)
 
         # Penalize overfitting
-        metrics_train = compute_metrics(rets_train)
+        metrics_train = compute_metrics(rets_train, n_trading_days=n_train_days)
         overfit_penalty = 0
         if metrics_train.sharpe_ratio > 0:
             degradation = (
@@ -179,8 +187,15 @@ def optimize_mean_reversion(
         if len(rets_val) < 3:
             return -10.0
 
-        metrics_val = compute_metrics(rets_val)
-        metrics_train = compute_metrics(rets_train)
+        if hasattr(val.index, 'date'):
+            n_val_days = len(set(val.index.date))
+            n_train_days = len(set(train.index.date))
+        else:
+            n_val_days = len(val)
+            n_train_days = len(train)
+
+        metrics_val = compute_metrics(rets_val, n_trading_days=n_val_days)
+        metrics_train = compute_metrics(rets_train, n_trading_days=n_train_days)
 
         overfit_penalty = 0
         if metrics_train.sharpe_ratio > 0 and len(rets_train) > 10:
@@ -274,8 +289,15 @@ def optimize_volatility_breakout(
         if len(rets_val) < 3:
             return -10.0
 
-        metrics_val = compute_metrics(rets_val)
-        metrics_train = compute_metrics(rets_train)
+        if hasattr(val.index, 'date'):
+            n_val_days = len(set(val.index.date))
+            n_train_days = len(set(train.index.date))
+        else:
+            n_val_days = len(val)
+            n_train_days = len(train)
+
+        metrics_val = compute_metrics(rets_val, n_trading_days=n_val_days)
+        metrics_train = compute_metrics(rets_train, n_trading_days=n_train_days)
 
         overfit_penalty = 0
         if metrics_train.sharpe_ratio > 0 and len(rets_train) > 5:
