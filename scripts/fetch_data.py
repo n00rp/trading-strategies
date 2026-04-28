@@ -2,7 +2,12 @@
 """Fetch all market data for the trading strategies project.
 
 Run this first to populate data/raw/ with historical OHLCV data.
-Uses yfinance for free data access.
+Uses yfinance for free data access (limited intraday history).
+
+For full intraday data (M1-H1, years of history):
+  1. Use MT5 with IC Markets — see mt5/README.md
+  2. Run the MQL5 ExportData script inside MT5
+  3. Convert CSVs: python scripts/convert_mt5_csv.py
 
 Usage:
     python scripts/fetch_data.py
