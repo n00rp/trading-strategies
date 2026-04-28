@@ -1,0 +1,33 @@
+[project]
+name = "trading-strategies"
+version = "0.1.0"
+description = "3 validated trading strategies (Trend, Mean-Reversion, Volatility) for major indices via CFD"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "yfinance>=0.2.28",
+    "vectorbt>=0.26.1",
+    "gymnasium>=0.29",
+    "stable-baselines3>=2.1",
+    "optuna>=3.4",
+    "scikit-learn>=1.3",
+    "ta>=0.11",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "scipy>=1.11",
+    "joblib>=1.3",
+    "tqdm>=4.66",
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+mt5 = ["MetaTrader5>=5.0.45"]
+dev = ["pytest>=7.4", "ruff>=0.1"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
