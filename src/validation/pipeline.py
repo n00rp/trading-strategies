@@ -76,14 +76,17 @@ def chronological_split(
 def compute_metrics(
     trade_returns: np.ndarray,
     equity_curve: np.ndarray | None = None,
-    annual_factor: float = 252,
+    n_trading_days: int | None = None,
 ) -> PerformanceMetrics:
-    """Compute performance metrics from trade returns.
+    """Compute performance metrics from per-trade returns.
 
     Args:
         trade_returns: Array of per-trade returns (e.g., [0.02, -0.01, 0.03, ...])
         equity_curve: Optional cumulative equity curve
-        annual_factor: Trading days per year (252 for daily, 252*6.5 for hourly)
+        n_trading_days: Number of trading days in the evaluation period.
+            If provided, used to compute trades-per-year for proper
+            Sharpe annualization. If None, assumes 252 days per year
+            and estimates from trade count (conservative).
     """
     if len(trade_returns) == 0:
         return PerformanceMetrics(
@@ -102,16 +105,32 @@ def compute_metrics(
     losses = trade_returns[trade_returns < 0]
     win_rate = float(len(wins) / n_trades * 100) if n_trades > 0 else 0
 
-    # Sharpe ratio (annualized)
+    # Sharpe ratio (annualized using trades-per-year, NOT sqrt(252))
+    # The annualization factor for per-trade returns should be
+    # sqrt(trades_per_year), not sqrt(trading_days_per_year).
+    if n_trading_days is not None and n_trading_days > 0:
+        n_years = n_trading_days / 252.0
+    else:
+        # Conservative: assume test period is ~1.5 years for 15% split of 10yr
+        n_years = max(n_trades / 252.0, 0.1)
+
+    trades_per_year = n_trades / max(n_years, 0.01)
+
     if np.std(trade_returns) > 0:
-        sharpe = float(np.mean(trade_returns) / np.std(trade_returns) * np.sqrt(annual_factor))
+        sharpe = float(
+            np.mean(trade_returns) / np.std(trade_returns)
+            * np.sqrt(trades_per_year)
+        )
     else:
         sharpe = 0.0
 
-    # Sortino ratio
+    # Sortino ratio (same annualization)
     downside = trade_returns[trade_returns < 0]
     if len(downside) > 0 and np.std(downside) > 0:
-        sortino = float(np.mean(trade_returns) / np.std(downside) * np.sqrt(annual_factor))
+        sortino = float(
+            np.mean(trade_returns) / np.std(downside)
+            * np.sqrt(trades_per_year)
+        )
     else:
         sortino = sharpe
 
@@ -129,7 +148,6 @@ def compute_metrics(
     max_dd = float(np.abs(np.min(drawdowns)))
 
     # Annualized return
-    n_years = n_trades / annual_factor if annual_factor > 0 else 1
     if n_years > 0 and total_return > -1:
         annual_return = float((1 + total_return) ** (1 / max(n_years, 0.01)) - 1) * 100
     else:
