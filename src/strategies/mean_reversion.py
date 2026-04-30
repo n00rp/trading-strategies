@@ -1,4 +1,4 @@
-"""Strategy B: Mean Reversion (RSI Extremes + Bollinger Band Reversals)."""
+"""Strategy B: Mean Reversion (RSI Dip-Buying for Indices)."""
 
 import numpy as np
 import pandas as pd
@@ -7,7 +7,7 @@ from src.strategies.base import BaseStrategy
 
 
 class MeanReversionStrategy(BaseStrategy):
-    """Mean Reversion strategy using RSI + Bollinger Bands.
+    """Mean Reversion strategy optimized for equity indices.
 
     Entry modes:
       1. RSI + BB mode (default): RSI extreme + price outside BB
@@ -18,28 +18,37 @@ class MeanReversionStrategy(BaseStrategy):
       - BB width filter
       - Max ADX filter (avoid strong trends)
       - Long-only mode
+    Uses RSI as the primary signal with optional BB confirmation.
+    Designed for daily timeframe where extreme signals are rare,
+    so thresholds are relaxed compared to textbook values.
 
-    Exit rules:
-      - Price returns to BB midline (mean)
-      - ATR-based stop loss
+    Long entry: RSI < threshold (dip buy in uptrending market)
+    Short entry: RSI > threshold (optional, disabled by default)
+    Exit: ATR-based take profit and stop loss
+
+    The edge: indices tend to mean-revert after short-term oversold
+    conditions due to institutional dip-buying and long-term upward bias.
     """
 
     def __init__(
         self,
         rsi_period: int = 14,
-        rsi_oversold: float = 30.0,
+        rsi_oversold: float = 35.0,
         rsi_overbought: float = 70.0,
         bb_period: int = 20,
         bb_std: float = 2.0,
-        atr_sl_mult: float = 1.0,
+        atr_sl_mult: float = 1.5,
         atr_tp_mult: float = 2.0,
         min_bb_width: float = 0.02,
+        min_bb_width: float = 0.01,
         use_stochastic: bool = False,
         use_zscore: bool = False,
         zscore_threshold: float = 2.0,
         max_adx: float = 100.0,
         long_only: bool = False,
         require_bb: bool = True,
+        long_only: bool = True,
+        require_bb: bool = False,
         spread_pips: float = 1.0,
     ):
         super().__init__("MeanReversion", spread_pips)
@@ -98,8 +107,51 @@ class MeanReversionStrategy(BaseStrategy):
         if self.use_stochastic and "stoch_k" in df.columns and "stoch_d" in df.columns:
             stoch_long = (df["stoch_k"] < 20) & (df["stoch_k"] > df["stoch_d"])
             stoch_short = (df["stoch_k"] > 80) & (df["stoch_k"] < df["stoch_d"])
+        # Primary long signal
+        long_cond = pd.Series(False, index=df.index)
+
+        if self.use_zscore and "zscore" in df.columns:
+            long_cond = df["zscore"] < -self.zscore_threshold
+        elif "rsi" in df.columns:
+            long_cond = df["rsi"] < self.rsi_oversold
+
+            if self.require_bb and "bb_lower" in df.columns:
+                if "bb_pct" in df.columns:
+                    long_cond = long_cond & (df["bb_pct"] < 0.2)
+                else:
+                    long_cond = long_cond & (df["close"] <= df["bb_lower"] * 1.02)
+
+        # Short signal (optional)
+        short_cond = pd.Series(False, index=df.index)
+        if not self.long_only:
+            if self.use_zscore and "zscore" in df.columns:
+                short_cond = df["zscore"] > self.zscore_threshold
+            elif "rsi" in df.columns:
+                short_cond = df["rsi"] > self.rsi_overbought
+                if self.require_bb and "bb_upper" in df.columns:
+                    short_cond = short_cond & (df["close"] > df["bb_upper"])
+
+        # BB width filter
+        if "bb_width" in df.columns:
+            width_ok = df["bb_width"] > self.min_bb_width
+            long_cond = long_cond & width_ok
+            if not self.long_only:
+                short_cond = short_cond & width_ok
+
+        # Stochastic confirmation
+        if self.use_stochastic and "stoch_k" in df.columns and "stoch_d" in df.columns:
+            stoch_long = (df["stoch_k"] < 30) & (df["stoch_k"] > df["stoch_d"])
             long_cond = long_cond & stoch_long
-            short_cond = short_cond & stoch_short
+            if not self.long_only:
+                stoch_short = (df["stoch_k"] > 70) & (df["stoch_k"] < df["stoch_d"])
+                short_cond = short_cond & stoch_short
+
+        # ADX filter (only trade in non-trending)
+        if self.max_adx < 100 and "adx" in df.columns:
+            no_trend = df["adx"] < self.max_adx
+            long_cond = long_cond & no_trend
+            if not self.long_only:
+                short_cond = short_cond & no_trend
 
         signals[long_cond] = 1
         if not self.long_only:

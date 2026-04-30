@@ -34,10 +34,27 @@ CONFIG = {
     "interval": "1d",
     "strategy_type": "mean_reversion",
 
+    # Feature engineering params (from Optuna optimization — 500 trials)
     "feature_params": {
-        "rsi_period": 14,
-        "bb_period": 20,
-        "bb_std": 2.0,
+        "rsi_period": 19,
+        "bb_period": 19,
+        "bb_std": 1.86,
+    },
+
+    # Strategy params (Optuna best on S&P 500 daily, cross-validated on 4 indices)
+    "strategy_params": {
+        "rsi_period": 19,
+        "rsi_oversold": 38.34,
+        "rsi_overbought": 79.09,
+        "bb_period": 19,
+        "bb_std": 1.86,
+        "atr_sl_mult": 2.82,
+        "atr_tp_mult": 2.89,
+        "min_bb_width": 0.04,
+        "use_stochastic": True,
+        "long_only": False,
+        "require_bb": False,
+        "max_adx": 76.10,
     },
 
     "algorithm": "PPO",
