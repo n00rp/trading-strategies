@@ -70,6 +70,30 @@ class TrendFollowingStrategy(BaseStrategy):
         price = df["close"].iloc[idx]
         return price + direction * self.atr_tp_mult * atr
 
+    def _diagnose_no_signal(
+        self, df: pd.DataFrame, idx: int, direction: int
+    ) -> str:
+        """Diagnose why trend following didn't signal at this bar."""
+        reasons = []
+        if "ema_fast" in df.columns and "ema_slow" in df.columns:
+            ema_f = df["ema_fast"].iloc[idx]
+            ema_s = df["ema_slow"].iloc[idx]
+            if direction == 1 and ema_f <= ema_s:
+                reasons.append(f"ema_fast({ema_f:.1f})<=ema_slow({ema_s:.1f})")
+            elif direction == -1 and ema_f >= ema_s:
+                reasons.append(f"ema_fast({ema_f:.1f})>=ema_slow({ema_s:.1f})")
+        if "adx" in df.columns:
+            adx = df["adx"].iloc[idx]
+            if adx <= self.adx_threshold:
+                reasons.append(f"adx({adx:.1f})<={self.adx_threshold}")
+        if "macd_hist" in df.columns:
+            mh = df["macd_hist"].iloc[idx]
+            if direction == 1 and mh <= 0:
+                reasons.append(f"macd_hist({mh:.4f})<=0")
+            elif direction == -1 and mh >= 0:
+                reasons.append(f"macd_hist({mh:.4f})>=0")
+        return "; ".join(reasons) if reasons else "unknown"
+
     def get_params(self) -> dict:
         return {
             "ema_fast": self.ema_fast,

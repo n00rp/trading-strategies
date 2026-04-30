@@ -1,7 +1,7 @@
 """Base strategy class and backtesting engine."""
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import numpy as np
 import pandas as pd
@@ -21,6 +21,25 @@ class Trade:
     pnl: float
     pnl_pct: float
     bars_held: int
+
+
+@dataclass
+class MissedTrade:
+    """A trade the strategy did NOT take, but the move was profitable.
+
+    Logged when:
+      - The strategy was flat (no position)
+      - No signal was generated
+      - But the price moved favorably beyond what would have been a TP level
+    """
+
+    time: pd.Timestamp
+    direction: int  # 1=would-be-long, -1=would-be-short
+    price_at_signal: float
+    peak_favorable_move_pct: float
+    hypothetical_tp_price: float
+    bars_to_peak: int
+    reason: str  # why signal was not generated
 
 
 class BaseStrategy(ABC):
@@ -45,6 +64,96 @@ class BaseStrategy(ABC):
     @abstractmethod
     def get_take_profit(self, df: pd.DataFrame, idx: int, direction: int) -> float:
         """Get take profit price for a trade."""
+
+    def detect_missed_trades(
+        self,
+        df: pd.DataFrame,
+        signals: pd.Series,
+        lookahead_bars: int = 20,
+        min_move_pct: float = 0.005,
+    ) -> list[MissedTrade]:
+        """Detect profitable moves that the strategy did NOT take.
+
+        For each bar where signal == 0 (flat), check if the price moved
+        enough in either direction to have been a profitable trade.
+
+        Args:
+            df: OHLCV DataFrame with indicators.
+            signals: Signal series from generate_signals().
+            lookahead_bars: How many bars ahead to check for favorable move.
+            min_move_pct: Minimum move (%) to count as a missed opportunity.
+
+        Returns:
+            List of MissedTrade objects.
+        """
+        missed: list[MissedTrade] = []
+        position = 0
+        in_trade_until = 0
+
+        for i in range(1, len(df) - lookahead_bars):
+            sig = signals.iloc[i - 1]
+
+            # Track if we'd be in a trade
+            if sig != 0 and position == 0:
+                position = int(sig)
+                in_trade_until = i + lookahead_bars
+            if i >= in_trade_until:
+                position = 0
+
+            # Only check bars where we're flat and signal is 0
+            if position != 0 or sig != 0:
+                continue
+
+            entry_price = df["open"].iloc[i]
+            if entry_price <= 0:
+                continue
+
+            future = df.iloc[i : i + lookahead_bars]
+
+            # Check upward move (missed long)
+            max_high = future["high"].max()
+            up_move_pct = (max_high - entry_price) / entry_price
+            if up_move_pct >= min_move_pct:
+                bars_to_peak = int(future["high"].argmax())
+                hyp_tp = entry_price * (1 + min_move_pct)
+                reason = self._diagnose_no_signal(df, i, direction=1)
+                missed.append(MissedTrade(
+                    time=df.index[i],
+                    direction=1,
+                    price_at_signal=entry_price,
+                    peak_favorable_move_pct=float(up_move_pct * 100),
+                    hypothetical_tp_price=hyp_tp,
+                    bars_to_peak=bars_to_peak,
+                    reason=reason,
+                ))
+
+            # Check downward move (missed short)
+            min_low = future["low"].min()
+            down_move_pct = (entry_price - min_low) / entry_price
+            if down_move_pct >= min_move_pct:
+                bars_to_peak = int(future["low"].argmin())
+                hyp_tp = entry_price * (1 - min_move_pct)
+                reason = self._diagnose_no_signal(df, i, direction=-1)
+                missed.append(MissedTrade(
+                    time=df.index[i],
+                    direction=-1,
+                    price_at_signal=entry_price,
+                    peak_favorable_move_pct=float(down_move_pct * 100),
+                    hypothetical_tp_price=hyp_tp,
+                    bars_to_peak=bars_to_peak,
+                    reason=reason,
+                ))
+
+        return missed
+
+    def _diagnose_no_signal(
+        self, df: pd.DataFrame, idx: int, direction: int
+    ) -> str:
+        """Diagnose why no signal was generated at a given bar.
+
+        Override in subclasses for strategy-specific diagnostics.
+        """
+        return "no_signal"
 
     def backtest(
         self,

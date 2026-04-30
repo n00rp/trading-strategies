@@ -106,6 +106,27 @@ class VolatilityBreakoutStrategy(BaseStrategy):
         price = df["close"].iloc[idx]
         return price + direction * self.atr_tp_mult * atr
 
+    def _diagnose_no_signal(
+        self, df: pd.DataFrame, idx: int, direction: int
+    ) -> str:
+        """Diagnose why volatility breakout didn't signal at this bar."""
+        reasons = []
+        if "donchian_high_20" in df.columns and direction == 1:
+            if df["close"].iloc[idx] <= df["donchian_high_20"].iloc[max(0, idx - 1)]:
+                reasons.append("no_breakout_above_donchian")
+        if "donchian_low_20" in df.columns and direction == -1:
+            if df["close"].iloc[idx] >= df["donchian_low_20"].iloc[max(0, idx - 1)]:
+                reasons.append("no_breakout_below_donchian")
+        if "squeeze" in df.columns:
+            squeeze_sum = df["squeeze"].iloc[max(0, idx - self.squeeze_lookback):idx + 1].sum()
+            if squeeze_sum == 0:
+                reasons.append("no_squeeze_detected")
+        if "vol_ratio" in df.columns:
+            vr = df["vol_ratio"].iloc[idx]
+            if vr < self.vol_ratio_threshold:
+                reasons.append(f"vol_ratio({vr:.2f})<{self.vol_ratio_threshold}")
+        return "; ".join(reasons) if reasons else "no_compression"
+
     def get_params(self) -> dict:
         return {
             "squeeze_lookback": self.squeeze_lookback,
