@@ -1,16 +1,12 @@
-"""Data fetching module using yfinance.
+"""Data fetching module.
 
-For M15/H1 data, yfinance has limitations:
-  - 15m: max ~60 days of history
-  - 1h:  max ~730 days of history
-  - 1d:  full history available
+Supports loading from:
+  1. MT5-exported parquet files (preferred — full intraday history)
+  2. yfinance (fallback — limited intraday history)
 
-Strategy:
-  1. Fetch daily data for full 10+ year history (primary for backtesting).
-  2. Fetch hourly data for available period (~2 years) for higher-res validation.
-  3. Fetch 15m data for recent period (~60 days) for granular analysis.
-
-For production CFD trading, use MT5 API to get full intraday history.
+MT5 file naming conventions supported:
+  - {SYMBOL}_{TF}_{start}_{end}.parquet  (e.g. US500_M15_201705100100_202604212345.parquet)
+  - {name}_{interval}.parquet  (e.g. sp500_15m.parquet)
 """
 
 import logging
@@ -31,6 +27,25 @@ SYMBOLS = {
     "nasdaq": "^IXIC",
     "dowjones": "^DJI",
     "dax": "^GDAXI",
+}
+
+# Map MT5 symbol names to our internal names
+MT5_SYMBOL_MAP = {
+    "US500": "sp500",
+    "USTEC": "nasdaq",
+    "DOW.NYSE": "dowjones",
+    "DE40": "dax",
+}
+
+# Map MT5 timeframe codes to our interval names
+MT5_TF_MAP = {
+    "M1": "1m",
+    "M5": "5m",
+    "M10": "10m",
+    "M15": "15m",
+    "M30": "30m",
+    "H1": "1h",
+    "D1": "1d",
 }
 
 # yfinance interval constraints
@@ -122,11 +137,47 @@ def fetch_all(
 
 
 def load_data(name: str, interval: str = "1d") -> pd.DataFrame:
-    """Load previously saved data from parquet."""
+    """Load previously saved data from parquet.
+
+    Searches for data files in this order:
+      1. MT5-style naming: {MT5_SYMBOL}_{MT5_TF}_{dates}.parquet
+      2. Simple naming: {name}_{interval}.parquet
+    """
+    import glob
+
+    # Reverse-map our name to MT5 symbol
+    mt5_symbol = None
+    for mt5_sym, our_name in MT5_SYMBOL_MAP.items():
+        if our_name == name:
+            mt5_symbol = mt5_sym
+            break
+
+    # Reverse-map our interval to MT5 timeframe
+    mt5_tf = None
+    for mt5_code, our_interval in MT5_TF_MAP.items():
+        if our_interval == interval:
+            mt5_tf = mt5_code
+            break
+
+    # Try MT5-style files first
+    if mt5_symbol and mt5_tf:
+        pattern = str(RAW_DIR / f"{mt5_symbol}_{mt5_tf}_*.parquet")
+        matches = sorted(glob.glob(pattern))
+        if matches:
+            path = Path(matches[-1])  # latest file
+            logger.info(f"Loading MT5 data: {path.name}")
+            return pd.read_parquet(path)
+
+    # Fall back to simple naming
     path = RAW_DIR / f"{name}_{interval}.parquet"
-    if not path.exists():
-        raise FileNotFoundError(f"Data file not found: {path}. Run fetch_all() first.")
-    return pd.read_parquet(path)
+    if path.exists():
+        return pd.read_parquet(path)
+
+    raise FileNotFoundError(
+        f"No data found for {name} @ {interval}. "
+        f"Searched: {mt5_symbol}_{mt5_tf}_*.parquet and {name}_{interval}.parquet "
+        f"in {RAW_DIR}"
+    )
 
 
 def load_all(interval: str = "1d") -> dict[str, pd.DataFrame]:

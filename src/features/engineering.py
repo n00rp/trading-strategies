@@ -212,6 +212,10 @@ def prepare_strategy_data(
             bb_period=params.get("bb_period", 20),
             bb_std=params.get("bb_std", 2.0),
         )
+        # Add ADX if max_adx filter is used
+        if params.get("max_adx", 100.0) < 100.0:
+            adx_indicator = ta.trend.ADXIndicator(df["high"], df["low"], df["close"], window=14)
+            df["adx"] = adx_indicator.adx()
     elif strategy_type == "volatility":
         df = add_volatility_features(
             df,

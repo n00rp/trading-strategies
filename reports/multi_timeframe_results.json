@@ -1,0 +1,1118 @@
+{
+  "5m": {
+    "sp500": {
+      "mean_reversion": {
+        "sharpe": 0.24496120946638392,
+        "pf": 1.0293159343129525,
+        "maxdd": 6.360224328302108,
+        "trades": 620,
+        "trades_per_week": 8.985507246376812,
+        "win_rate": 31.774193548387096,
+        "annual_return": 1.3174222326815421,
+        "meets_criteria": false,
+        "test_days": 345,
+        "test_bars": 94127,
+        "params": {
+          "long_only": true,
+          "use_zscore": false,
+          "require_bb": false,
+          "bb_period": 30,
+          "bb_std": 2.0960762270186377,
+          "atr_sl_mult": 0.6224791882838936,
+          "atr_tp_mult": 1.310426531833046,
+          "min_bb_width": 0.01409801007355825,
+          "use_stochastic": false,
+          "max_adx": 71.81098501334021,
+          "rsi_period": 4,
+          "rsi_oversold": 36.49029387709911,
+          "rsi_overbought": 67.14621071638507
+        },
+        "val_score": 3.338730028733719
+      },
+      "volatility": {
+        "sharpe": -0.3881821408708425,
+        "pf": 0.9564681493119438,
+        "maxdd": 6.941638346973172,
+        "trades": 699,
+        "trades_per_week": 10.130434782608695,
+        "win_rate": 41.05865522174535,
+        "annual_return": -2.3961074006183303,
+        "meets_criteria": false,
+        "test_days": 345,
+        "test_bars": 94124,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 2.424482438733776,
+          "atr_tp_mult": 3.6290602043819034,
+          "vol_ratio_threshold": 0.8173297730942408,
+          "bb_period": 30,
+          "kc_period": 29,
+          "bb_mult": 1.5539866249332275,
+          "kc_mult": 1.9768190173393194
+        },
+        "val_score": 3.246594050060043
+      },
+      "trend": {
+        "sharpe": 7.911658462327383,
+        "pf": 1.3291439732068022,
+        "maxdd": 9.598530996094786,
+        "trades": 8281,
+        "trades_per_week": 120.01449275362319,
+        "win_rate": 72.10481825866441,
+        "annual_return": 248.31921078457842,
+        "meets_criteria": false,
+        "test_days": 345,
+        "test_bars": 94125,
+        "params": {
+          "ema_fast": 9,
+          "ema_slow": 42,
+          "adx_threshold": 15.321194736674096,
+          "atr_sl_mult": 2.884608605462318,
+          "atr_tp_mult": 1.5015993576728364
+        },
+        "val_score": 6.147330213809901
+      }
+    },
+    "nasdaq": {
+      "trend": {
+        "sharpe": 7.606436246611269,
+        "pf": 1.2999775186124287,
+        "maxdd": 10.477599902613372,
+        "trades": 8337,
+        "trades_per_week": 120.47687861271676,
+        "win_rate": 71.59649754108193,
+        "annual_return": 339.01020352956584,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 94368,
+        "params": {
+          "ema_fast": 9,
+          "ema_slow": 42,
+          "adx_threshold": 15.321194736674096,
+          "atr_sl_mult": 2.884608605462318,
+          "atr_tp_mult": 1.5015993576728364
+        }
+      },
+      "mean_reversion": {
+        "sharpe": -0.0687813614396037,
+        "pf": 0.994065451285338,
+        "maxdd": 9.783047228981923,
+        "trades": 1126,
+        "trades_per_week": 16.271676300578033,
+        "win_rate": 32.5044404973357,
+        "annual_return": -0.8645963114094157,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 94370,
+        "params": {
+          "long_only": true,
+          "use_zscore": false,
+          "require_bb": false,
+          "bb_period": 30,
+          "bb_std": 2.0960762270186377,
+          "atr_sl_mult": 0.6224791882838936,
+          "atr_tp_mult": 1.310426531833046,
+          "min_bb_width": 0.01409801007355825,
+          "use_stochastic": false,
+          "max_adx": 71.81098501334021,
+          "rsi_period": 4,
+          "rsi_oversold": 36.49029387709911,
+          "rsi_overbought": 67.14621071638507
+        }
+      },
+      "volatility": {
+        "sharpe": -1.3686071192255695,
+        "pf": 0.8622281970059786,
+        "maxdd": 13.836587446630189,
+        "trades": 712,
+        "trades_per_week": 10.289017341040463,
+        "win_rate": 40.168539325842694,
+        "annual_return": -9.70034477778321,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 94367,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 2.424482438733776,
+          "atr_tp_mult": 3.6290602043819034,
+          "vol_ratio_threshold": 0.8173297730942408,
+          "bb_period": 30,
+          "kc_period": 29,
+          "bb_mult": 1.5539866249332275,
+          "kc_mult": 1.9768190173393194
+        }
+      }
+    },
+    "dowjones": {
+      "trend": {
+        "sharpe": 0.3953820964586064,
+        "pf": 1.025812673896653,
+        "maxdd": 37.73628158769063,
+        "trades": 1631,
+        "trades_per_week": 34.55508474576271,
+        "win_rate": 70.14101778050275,
+        "annual_return": 8.054042374725823,
+        "meets_criteria": false,
+        "test_days": 236,
+        "test_bars": 17802,
+        "params": {
+          "ema_fast": 9,
+          "ema_slow": 42,
+          "adx_threshold": 15.321194736674096,
+          "atr_sl_mult": 2.884608605462318,
+          "atr_tp_mult": 1.5015993576728364
+        }
+      },
+      "mean_reversion": {
+        "sharpe": -10.720414119009156,
+        "pf": 0.5858927881815565,
+        "maxdd": 86.04652028367269,
+        "trades": 2105,
+        "trades_per_week": 44.597457627118644,
+        "win_rate": 30.356294536817103,
+        "annual_return": -87.69799650024163,
+        "meets_criteria": false,
+        "test_days": 236,
+        "test_bars": 17804,
+        "params": {
+          "long_only": true,
+          "use_zscore": false,
+          "require_bb": false,
+          "bb_period": 30,
+          "bb_std": 2.0960762270186377,
+          "atr_sl_mult": 0.6224791882838936,
+          "atr_tp_mult": 1.310426531833046,
+          "min_bb_width": 0.01409801007355825,
+          "use_stochastic": false,
+          "max_adx": 71.81098501334021,
+          "rsi_period": 4,
+          "rsi_oversold": 36.49029387709911,
+          "rsi_overbought": 67.14621071638507
+        }
+      },
+      "volatility": {
+        "sharpe": -0.4659752472969807,
+        "pf": 0.9154736630061847,
+        "maxdd": 9.192188246294691,
+        "trades": 133,
+        "trades_per_week": 2.8177966101694913,
+        "win_rate": 43.609022556390975,
+        "annual_return": -6.711681996305541,
+        "meets_criteria": false,
+        "test_days": 236,
+        "test_bars": 17801,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 2.424482438733776,
+          "atr_tp_mult": 3.6290602043819034,
+          "vol_ratio_threshold": 0.8173297730942408,
+          "bb_period": 30,
+          "kc_period": 29,
+          "bb_mult": 1.5539866249332275,
+          "kc_mult": 1.9768190173393194
+        }
+      }
+    },
+    "dax": {
+      "trend": {
+        "sharpe": 6.086157696452778,
+        "pf": 1.221066394877319,
+        "maxdd": 7.767044929139623,
+        "trades": 8524,
+        "trades_per_week": 125.72271386430678,
+        "win_rate": 69.82637259502582,
+        "annual_return": 166.05115245928826,
+        "meets_criteria": false,
+        "test_days": 339,
+        "test_bars": 92454,
+        "params": {
+          "ema_fast": 9,
+          "ema_slow": 42,
+          "adx_threshold": 15.321194736674096,
+          "atr_sl_mult": 2.884608605462318,
+          "atr_tp_mult": 1.5015993576728364
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 0.8521345270032495,
+        "pf": 1.0991246508658759,
+        "maxdd": 4.788175860304,
+        "trades": 683,
+        "trades_per_week": 10.073746312684365,
+        "win_rate": 33.23572474377745,
+        "annual_return": 4.930156464418345,
+        "meets_criteria": false,
+        "test_days": 339,
+        "test_bars": 92456,
+        "params": {
+          "long_only": true,
+          "use_zscore": false,
+          "require_bb": false,
+          "bb_period": 30,
+          "bb_std": 2.0960762270186377,
+          "atr_sl_mult": 0.6224791882838936,
+          "atr_tp_mult": 1.310426531833046,
+          "min_bb_width": 0.01409801007355825,
+          "use_stochastic": false,
+          "max_adx": 71.81098501334021,
+          "rsi_period": 4,
+          "rsi_oversold": 36.49029387709911,
+          "rsi_overbought": 67.14621071638507
+        }
+      },
+      "volatility": {
+        "sharpe": 1.0554119063125598,
+        "pf": 1.1228795996007612,
+        "maxdd": 5.978806147699571,
+        "trades": 689,
+        "trades_per_week": 10.162241887905605,
+        "win_rate": 43.2510885341074,
+        "annual_return": 6.518066025393443,
+        "meets_criteria": false,
+        "test_days": 339,
+        "test_bars": 92453,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 2.424482438733776,
+          "atr_tp_mult": 3.6290602043819034,
+          "vol_ratio_threshold": 0.8173297730942408,
+          "bb_period": 30,
+          "kc_period": 29,
+          "bb_mult": 1.5539866249332275,
+          "kc_mult": 1.9768190173393194
+        }
+      }
+    }
+  },
+  "15m": {
+    "sp500": {
+      "mean_reversion": {
+        "sharpe": 0.17183687062221387,
+        "pf": 1.0355785998675924,
+        "maxdd": 11.139563381274565,
+        "trades": 181,
+        "trades_per_week": 2.6156069364161847,
+        "win_rate": 44.19889502762431,
+        "annual_return": 1.2132617290563363,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 31486,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": true,
+          "bb_period": 20,
+          "bb_std": 2.0863972254228615,
+          "atr_sl_mult": 2.5418803379092707,
+          "atr_tp_mult": 3.2451988314923703,
+          "min_bb_width": 0.011085444507557085,
+          "use_stochastic": true,
+          "max_adx": 92.22466750974937,
+          "zscore_threshold": 1.0355171552638323
+        },
+        "val_score": 2.847221993953639
+      },
+      "volatility": {
+        "sharpe": 0.5238105715629019,
+        "pf": 1.135925195608975,
+        "maxdd": 3.659786749688642,
+        "trades": 288,
+        "trades_per_week": 4.161849710982659,
+        "win_rate": 25.0,
+        "annual_return": 2.5174833357690662,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 31482,
+        "params": {
+          "squeeze_lookback": 5,
+          "atr_sl_mult": 1.000171192932145,
+          "atr_tp_mult": 3.340686031274663,
+          "vol_ratio_threshold": 1.1827232234215952,
+          "bb_period": 23,
+          "kc_period": 26,
+          "bb_mult": 1.8652361108245599,
+          "kc_mult": 1.8444055620113096
+        },
+        "val_score": 3.8441878043719346
+      },
+      "trend": {
+        "sharpe": 2.5356488748339414,
+        "pf": 1.1850332834273223,
+        "maxdd": 16.25691447086143,
+        "trades": 2184,
+        "trades_per_week": 31.560693641618496,
+        "win_rate": 67.62820512820514,
+        "annual_return": 49.85827715196718,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 31478,
+        "params": {
+          "ema_fast": 8,
+          "ema_slow": 76,
+          "adx_threshold": 16.379219720061222,
+          "atr_sl_mult": 2.9977027108213266,
+          "atr_tp_mult": 1.7974415771531236
+        },
+        "val_score": 5.183134874066001
+      }
+    },
+    "nasdaq": {
+      "trend": {
+        "sharpe": 2.3026182958420693,
+        "pf": 1.1591777615661512,
+        "maxdd": 14.670873465583522,
+        "trades": 2162,
+        "trades_per_week": 31.242774566473987,
+        "win_rate": 66.6049953746531,
+        "annual_return": 57.04900595817466,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 31488,
+        "params": {
+          "ema_fast": 8,
+          "ema_slow": 76,
+          "adx_threshold": 16.379219720061222,
+          "atr_sl_mult": 2.9977027108213266,
+          "atr_tp_mult": 1.7974415771531236
+        }
+      },
+      "mean_reversion": {
+        "sharpe": -0.8335762711202009,
+        "pf": 0.8706335371062344,
+        "maxdd": 16.60807021828116,
+        "trades": 255,
+        "trades_per_week": 3.684971098265896,
+        "win_rate": 40.78431372549019,
+        "annual_return": -10.350884630502755,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 31497,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": true,
+          "bb_period": 20,
+          "bb_std": 2.0863972254228615,
+          "atr_sl_mult": 2.5418803379092707,
+          "atr_tp_mult": 3.2451988314923703,
+          "min_bb_width": 0.011085444507557085,
+          "use_stochastic": true,
+          "max_adx": 92.22466750974937,
+          "zscore_threshold": 1.0355171552638323
+        }
+      },
+      "volatility": {
+        "sharpe": 1.446651258050604,
+        "pf": 1.3396693960100292,
+        "maxdd": 3.1978975369835063,
+        "trades": 317,
+        "trades_per_week": 4.580924855491329,
+        "win_rate": 29.652996845425868,
+        "annual_return": 9.478198477369194,
+        "meets_criteria": false,
+        "test_days": 346,
+        "test_bars": 31492,
+        "params": {
+          "squeeze_lookback": 5,
+          "atr_sl_mult": 1.000171192932145,
+          "atr_tp_mult": 3.340686031274663,
+          "vol_ratio_threshold": 1.1827232234215952,
+          "bb_period": 23,
+          "kc_period": 26,
+          "bb_mult": 1.8652361108245599,
+          "kc_mult": 1.8444055620113096
+        }
+      }
+    },
+    "dowjones": {
+      "trend": {
+        "sharpe": 1.4433845870639772,
+        "pf": 1.165057318801953,
+        "maxdd": 24.526286935285956,
+        "trades": 453,
+        "trades_per_week": 9.597457627118644,
+        "win_rate": 67.3289183222958,
+        "annual_return": 53.095294083204195,
+        "meets_criteria": false,
+        "test_days": 236,
+        "test_bars": 6082,
+        "params": {
+          "ema_fast": 8,
+          "ema_slow": 76,
+          "adx_threshold": 16.379219720061222,
+          "atr_sl_mult": 2.9977027108213266,
+          "atr_tp_mult": 1.7974415771531236
+        }
+      },
+      "mean_reversion": {
+        "sharpe": -1.0226028484770373,
+        "pf": 0.8464677240427594,
+        "maxdd": 41.10889188600043,
+        "trades": 166,
+        "trades_per_week": 3.516949152542373,
+        "win_rate": 40.36144578313253,
+        "annual_return": -25.06810059963247,
+        "meets_criteria": false,
+        "test_days": 236,
+        "test_bars": 6091,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": true,
+          "bb_period": 20,
+          "bb_std": 2.0863972254228615,
+          "atr_sl_mult": 2.5418803379092707,
+          "atr_tp_mult": 3.2451988314923703,
+          "min_bb_width": 0.011085444507557085,
+          "use_stochastic": true,
+          "max_adx": 92.22466750974937,
+          "zscore_threshold": 1.0355171552638323
+        }
+      },
+      "volatility": {
+        "sharpe": -0.8346433872645265,
+        "pf": 0.7732639412227599,
+        "maxdd": 13.797085616223391,
+        "trades": 62,
+        "trades_per_week": 1.3135593220338981,
+        "win_rate": 19.35483870967742,
+        "annual_return": -9.19164553538141,
+        "meets_criteria": false,
+        "test_days": 236,
+        "test_bars": 6086,
+        "params": {
+          "squeeze_lookback": 5,
+          "atr_sl_mult": 1.000171192932145,
+          "atr_tp_mult": 3.340686031274663,
+          "vol_ratio_threshold": 1.1827232234215952,
+          "bb_period": 23,
+          "kc_period": 26,
+          "bb_mult": 1.8652361108245599,
+          "kc_mult": 1.8444055620113096
+        }
+      }
+    },
+    "dax": {
+      "trend": {
+        "sharpe": 2.95619469378592,
+        "pf": 1.2001092814776668,
+        "maxdd": 13.409447085910886,
+        "trades": 2145,
+        "trades_per_week": 31.637168141592923,
+        "win_rate": 67.17948717948717,
+        "annual_return": 58.02111116429198,
+        "meets_criteria": false,
+        "test_days": 339,
+        "test_bars": 30888,
+        "params": {
+          "ema_fast": 8,
+          "ema_slow": 76,
+          "adx_threshold": 16.379219720061222,
+          "atr_sl_mult": 2.9977027108213266,
+          "atr_tp_mult": 1.7974415771531236
+        }
+      },
+      "mean_reversion": {
+        "sharpe": -0.7688381362015531,
+        "pf": 0.8645083598230486,
+        "maxdd": 13.432783767515923,
+        "trades": 192,
+        "trades_per_week": 2.831858407079646,
+        "win_rate": 40.10416666666667,
+        "annual_return": -7.592670447337724,
+        "meets_criteria": false,
+        "test_days": 339,
+        "test_bars": 30896,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": true,
+          "bb_period": 20,
+          "bb_std": 2.0863972254228615,
+          "atr_sl_mult": 2.5418803379092707,
+          "atr_tp_mult": 3.2451988314923703,
+          "min_bb_width": 0.011085444507557085,
+          "use_stochastic": true,
+          "max_adx": 92.22466750974937,
+          "zscore_threshold": 1.0355171552638323
+        }
+      },
+      "volatility": {
+        "sharpe": 0.4649593780488371,
+        "pf": 1.1126933027100498,
+        "maxdd": 3.780806990436746,
+        "trades": 268,
+        "trades_per_week": 3.952802359882006,
+        "win_rate": 23.88059701492537,
+        "annual_return": 2.379958814297778,
+        "meets_criteria": false,
+        "test_days": 339,
+        "test_bars": 30891,
+        "params": {
+          "squeeze_lookback": 5,
+          "atr_sl_mult": 1.000171192932145,
+          "atr_tp_mult": 3.340686031274663,
+          "vol_ratio_threshold": 1.1827232234215952,
+          "bb_period": 23,
+          "kc_period": 26,
+          "bb_mult": 1.8652361108245599,
+          "kc_mult": 1.8444055620113096
+        }
+      }
+    }
+  },
+  "30m": {
+    "sp500": {
+      "volatility": {
+        "sharpe": -0.047541584779056456,
+        "pf": 0.9911620208318408,
+        "maxdd": 11.950880196425159,
+        "trades": 244,
+        "trades_per_week": 3.505747126436782,
+        "win_rate": 41.39344262295082,
+        "annual_return": -0.9335390984767877,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 15833,
+        "params": {
+          "squeeze_lookback": 3,
+          "atr_sl_mult": 2.904149325171668,
+          "atr_tp_mult": 3.726102442555722,
+          "vol_ratio_threshold": 1.0728086144680542,
+          "bb_period": 17,
+          "kc_period": 15,
+          "bb_mult": 1.550530033277992,
+          "kc_mult": 1.4937507155775382
+        },
+        "val_score": 4.031582573303512
+      },
+      "mean_reversion": {
+        "sharpe": 1.4833028816711848,
+        "pf": 1.1723514862518225,
+        "maxdd": 6.518519071477851,
+        "trades": 837,
+        "trades_per_week": 12.025862068965518,
+        "win_rate": 26.762246117084825,
+        "annual_return": 8.796999186758004,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 15837,
+        "params": {
+          "long_only": false,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 23,
+          "bb_std": 2.283982633975793,
+          "atr_sl_mult": 0.5008263421093243,
+          "atr_tp_mult": 1.6617754165274607,
+          "min_bb_width": 0.005007419399113859,
+          "use_stochastic": false,
+          "max_adx": 97.30938991963987,
+          "zscore_threshold": 2.2935110960436322
+        },
+        "val_score": 5.686961532336699
+      },
+      "trend": {
+        "sharpe": 1.5705241836781514,
+        "pf": 1.1611867671626828,
+        "maxdd": 17.42514636966773,
+        "trades": 939,
+        "trades_per_week": 13.49137931034483,
+        "win_rate": 63.0457933972311,
+        "annual_return": 25.233874038271043,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 15835,
+        "params": {
+          "ema_fast": 15,
+          "ema_slow": 36,
+          "adx_threshold": 19.559782039866484,
+          "atr_sl_mult": 2.8196278492830102,
+          "atr_tp_mult": 1.9925315977635651
+        },
+        "val_score": 4.350100287431819
+      }
+    },
+    "nasdaq": {
+      "trend": {
+        "sharpe": 1.4900284192073985,
+        "pf": 1.1409930822042964,
+        "maxdd": 18.806234062330418,
+        "trades": 1002,
+        "trades_per_week": 14.396551724137932,
+        "win_rate": 62.17564870259481,
+        "annual_return": 30.577792985986065,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 15830,
+        "params": {
+          "ema_fast": 15,
+          "ema_slow": 36,
+          "adx_threshold": 19.559782039866484,
+          "atr_sl_mult": 2.8196278492830102,
+          "atr_tp_mult": 1.9925315977635651
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 2.020194804953539,
+        "pf": 1.2207237778607716,
+        "maxdd": 5.832784973652454,
+        "trades": 990,
+        "trades_per_week": 14.224137931034484,
+        "win_rate": 27.17171717171717,
+        "annual_return": 16.444307207674626,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 15832,
+        "params": {
+          "long_only": false,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 23,
+          "bb_std": 2.283982633975793,
+          "atr_sl_mult": 0.5008263421093243,
+          "atr_tp_mult": 1.6617754165274607,
+          "min_bb_width": 0.005007419399113859,
+          "use_stochastic": false,
+          "max_adx": 97.30938991963987,
+          "zscore_threshold": 2.2935110960436322
+        }
+      },
+      "volatility": {
+        "sharpe": 1.175235402325225,
+        "pf": 1.2290860059412545,
+        "maxdd": 8.242105347649916,
+        "trades": 249,
+        "trades_per_week": 3.577586206896552,
+        "win_rate": 48.19277108433735,
+        "annual_return": 14.511911819547452,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 15828,
+        "params": {
+          "squeeze_lookback": 3,
+          "atr_sl_mult": 2.904149325171668,
+          "atr_tp_mult": 3.726102442555722,
+          "vol_ratio_threshold": 1.0728086144680542,
+          "bb_period": 17,
+          "kc_period": 15,
+          "bb_mult": 1.550530033277992,
+          "kc_mult": 1.4937507155775382
+        }
+      }
+    },
+    "dowjones": {
+      "trend": {
+        "sharpe": 0.1496513494937748,
+        "pf": 1.0213779733621164,
+        "maxdd": 32.502507798648644,
+        "trades": 236,
+        "trades_per_week": 4.957983193277311,
+        "win_rate": 60.59322033898306,
+        "annual_return": -0.8308594422715254,
+        "meets_criteria": false,
+        "test_days": 238,
+        "test_bars": 3062,
+        "params": {
+          "ema_fast": 15,
+          "ema_slow": 36,
+          "adx_threshold": 19.559782039866484,
+          "atr_sl_mult": 2.8196278492830102,
+          "atr_tp_mult": 1.9925315977635651
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 1.1925668020501798,
+        "pf": 1.2440743670011567,
+        "maxdd": 11.39921975648831,
+        "trades": 159,
+        "trades_per_week": 3.340336134453781,
+        "win_rate": 30.81761006289308,
+        "annual_return": 15.613172861645408,
+        "meets_criteria": false,
+        "test_days": 238,
+        "test_bars": 3064,
+        "params": {
+          "long_only": false,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 23,
+          "bb_std": 2.283982633975793,
+          "atr_sl_mult": 0.5008263421093243,
+          "atr_tp_mult": 1.6617754165274607,
+          "min_bb_width": 0.005007419399113859,
+          "use_stochastic": false,
+          "max_adx": 97.30938991963987,
+          "zscore_threshold": 2.2935110960436322
+        }
+      },
+      "volatility": {
+        "sharpe": -0.0024602321205406774,
+        "pf": 0.9992395046064636,
+        "maxdd": 27.109896361721052,
+        "trades": 44,
+        "trades_per_week": 0.9282700421940928,
+        "win_rate": 45.45454545454545,
+        "annual_return": -2.645782332785507,
+        "meets_criteria": false,
+        "test_days": 237,
+        "test_bars": 3060,
+        "params": {
+          "squeeze_lookback": 3,
+          "atr_sl_mult": 2.904149325171668,
+          "atr_tp_mult": 3.726102442555722,
+          "vol_ratio_threshold": 1.0728086144680542,
+          "bb_period": 17,
+          "kc_period": 15,
+          "bb_mult": 1.550530033277992,
+          "kc_mult": 1.4937507155775382
+        }
+      }
+    },
+    "dax": {
+      "trend": {
+        "sharpe": 2.5575249103203546,
+        "pf": 1.2498786913977473,
+        "maxdd": 27.543440675244575,
+        "trades": 992,
+        "trades_per_week": 14.545454545454545,
+        "win_rate": 65.625,
+        "annual_return": 46.84830246158529,
+        "meets_criteria": false,
+        "test_days": 341,
+        "test_bars": 15523,
+        "params": {
+          "ema_fast": 15,
+          "ema_slow": 36,
+          "adx_threshold": 19.559782039866484,
+          "atr_sl_mult": 2.8196278492830102,
+          "atr_tp_mult": 1.9925315977635651
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 2.298502967721228,
+        "pf": 1.2783638563962836,
+        "maxdd": 4.397215212090415,
+        "trades": 841,
+        "trades_per_week": 12.331378299120233,
+        "win_rate": 28.894173602853744,
+        "annual_return": 14.991009910638887,
+        "meets_criteria": false,
+        "test_days": 341,
+        "test_bars": 15525,
+        "params": {
+          "long_only": false,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 23,
+          "bb_std": 2.283982633975793,
+          "atr_sl_mult": 0.5008263421093243,
+          "atr_tp_mult": 1.6617754165274607,
+          "min_bb_width": 0.005007419399113859,
+          "use_stochastic": false,
+          "max_adx": 97.30938991963987,
+          "zscore_threshold": 2.2935110960436322
+        }
+      },
+      "volatility": {
+        "sharpe": 0.9576038466891225,
+        "pf": 1.1944495150690735,
+        "maxdd": 6.334724244348118,
+        "trades": 238,
+        "trades_per_week": 3.5,
+        "win_rate": 46.21848739495798,
+        "annual_return": 10.846388600555667,
+        "meets_criteria": false,
+        "test_days": 340,
+        "test_bars": 15520,
+        "params": {
+          "squeeze_lookback": 3,
+          "atr_sl_mult": 2.904149325171668,
+          "atr_tp_mult": 3.726102442555722,
+          "vol_ratio_threshold": 1.0728086144680542,
+          "bb_period": 17,
+          "kc_period": 15,
+          "bb_mult": 1.550530033277992,
+          "kc_mult": 1.4937507155775382
+        }
+      }
+    }
+  },
+  "1h": {
+    "sp500": {
+      "mean_reversion": {
+        "sharpe": 0.8083368193440078,
+        "pf": 1.188373806292523,
+        "maxdd": 6.226871996149078,
+        "trades": 194,
+        "trades_per_week": 2.7793696275071635,
+        "win_rate": 26.804123711340207,
+        "annual_return": 3.1914777439401076,
+        "meets_criteria": false,
+        "test_days": 349,
+        "test_bars": 7939,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 14,
+          "bb_std": 2.4989122406966997,
+          "atr_sl_mult": 0.5452960187637192,
+          "atr_tp_mult": 2.0356758278756564,
+          "min_bb_width": 0.005046758118907514,
+          "use_stochastic": false,
+          "max_adx": 69.57588266029782,
+          "zscore_threshold": 2.3532425845309324
+        },
+        "val_score": 4.194930514890993
+      },
+      "volatility": {
+        "sharpe": 0.7125193862972912,
+        "pf": 1.1480882686237084,
+        "maxdd": 11.366149245598853,
+        "trades": 208,
+        "trades_per_week": 2.988505747126437,
+        "win_rate": 37.980769230769226,
+        "annual_return": 5.924695954732195,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 7934,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 1.6279962100942635,
+          "atr_tp_mult": 3.389135623653369,
+          "vol_ratio_threshold": 0.8173800769488041,
+          "bb_period": 18,
+          "kc_period": 18,
+          "bb_mult": 1.517255378989339,
+          "kc_mult": 1.0029710796676785
+        },
+        "val_score": 4.192682964268149
+      },
+      "trend": {
+        "sharpe": 0.24450578227095798,
+        "pf": 1.0223094019292178,
+        "maxdd": 11.271980296840447,
+        "trades": 988,
+        "trades_per_week": 14.195402298850576,
+        "win_rate": 40.08097165991903,
+        "annual_return": 2.145291615523792,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 7936,
+        "params": {
+          "ema_fast": 11,
+          "ema_slow": 43,
+          "adx_threshold": 21.33930990271515,
+          "atr_sl_mult": 1.0005462497595805,
+          "atr_tp_mult": 1.5033948041711704
+        },
+        "val_score": 5.084980615509148
+      }
+    },
+    "nasdaq": {
+      "trend": {
+        "sharpe": 0.2854580442939901,
+        "pf": 1.025425214619576,
+        "maxdd": 20.629687079199726,
+        "trades": 981,
+        "trades_per_week": 14.094827586206899,
+        "win_rate": 39.85728848114169,
+        "annual_return": 3.039145681823019,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 7932,
+        "params": {
+          "ema_fast": 11,
+          "ema_slow": 43,
+          "adx_threshold": 21.33930990271515,
+          "atr_sl_mult": 1.0005462497595805,
+          "atr_tp_mult": 1.5033948041711704
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 2.022053092173553,
+        "pf": 1.5038600347461764,
+        "maxdd": 4.93854338738965,
+        "trades": 220,
+        "trades_per_week": 3.1609195402298855,
+        "win_rate": 30.909090909090907,
+        "annual_return": 11.572895311653951,
+        "meets_criteria": true,
+        "test_days": 348,
+        "test_bars": 7935,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 14,
+          "bb_std": 2.4989122406966997,
+          "atr_sl_mult": 0.5452960187637192,
+          "atr_tp_mult": 2.0356758278756564,
+          "min_bb_width": 0.005046758118907514,
+          "use_stochastic": false,
+          "max_adx": 69.57588266029782,
+          "zscore_threshold": 2.3532425845309324
+        }
+      },
+      "volatility": {
+        "sharpe": 0.26239640919662005,
+        "pf": 1.054903004358636,
+        "maxdd": 15.293589645310792,
+        "trades": 189,
+        "trades_per_week": 2.7155172413793105,
+        "win_rate": 35.978835978835974,
+        "annual_return": 2.2349943432970365,
+        "meets_criteria": false,
+        "test_days": 348,
+        "test_bars": 7930,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 1.6279962100942635,
+          "atr_tp_mult": 3.389135623653369,
+          "vol_ratio_threshold": 0.8173800769488041,
+          "bb_period": 18,
+          "kc_period": 18,
+          "bb_mult": 1.517255378989339,
+          "kc_mult": 1.0029710796676785
+        }
+      }
+    },
+    "dowjones": {
+      "trend": {
+        "sharpe": 0.8759029683472332,
+        "pf": 1.1309979384173785,
+        "maxdd": 29.204031119380815,
+        "trades": 248,
+        "trades_per_week": 5.2991452991453,
+        "win_rate": 47.58064516129033,
+        "annual_return": 23.51784065349691,
+        "meets_criteria": false,
+        "test_days": 234,
+        "test_bars": 1625,
+        "params": {
+          "ema_fast": 11,
+          "ema_slow": 43,
+          "adx_threshold": 21.33930990271515,
+          "atr_sl_mult": 1.0005462497595805,
+          "atr_tp_mult": 1.5033948041711704
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 1.278439058578831,
+        "pf": 1.7562004350221638,
+        "maxdd": 3.719427453562063,
+        "trades": 30,
+        "trades_per_week": 0.6382978723404256,
+        "win_rate": 33.33333333333333,
+        "annual_return": 13.497330842580135,
+        "meets_criteria": true,
+        "test_days": 235,
+        "test_bars": 1629,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 14,
+          "bb_std": 2.4989122406966997,
+          "atr_sl_mult": 0.5452960187637192,
+          "atr_tp_mult": 2.0356758278756564,
+          "min_bb_width": 0.005046758118907514,
+          "use_stochastic": false,
+          "max_adx": 69.57588266029782,
+          "zscore_threshold": 2.3532425845309324
+        }
+      },
+      "volatility": {
+        "sharpe": -0.2444212930781148,
+        "pf": 0.9033218494071872,
+        "maxdd": 13.221524853208184,
+        "trades": 25,
+        "trades_per_week": 0.5341880341880342,
+        "win_rate": 32.0,
+        "annual_return": -5.076492729374216,
+        "meets_criteria": false,
+        "test_days": 234,
+        "test_bars": 1624,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 1.6279962100942635,
+          "atr_tp_mult": 3.389135623653369,
+          "vol_ratio_threshold": 0.8173800769488041,
+          "bb_period": 18,
+          "kc_period": 18,
+          "bb_mult": 1.517255378989339,
+          "kc_mult": 1.0029710796676785
+        }
+      }
+    },
+    "dax": {
+      "trend": {
+        "sharpe": -0.05362766273434225,
+        "pf": 0.9954313644347187,
+        "maxdd": 14.066469659371418,
+        "trades": 978,
+        "trades_per_week": 14.340175953079179,
+        "win_rate": 41.8200408997955,
+        "annual_return": -1.3114448253119804,
+        "meets_criteria": false,
+        "test_days": 341,
+        "test_bars": 7782,
+        "params": {
+          "ema_fast": 11,
+          "ema_slow": 43,
+          "adx_threshold": 21.33930990271515,
+          "atr_sl_mult": 1.0005462497595805,
+          "atr_tp_mult": 1.5033948041711704
+        }
+      },
+      "mean_reversion": {
+        "sharpe": 1.0877906918079805,
+        "pf": 1.3047851627706564,
+        "maxdd": 2.740444689807614,
+        "trades": 177,
+        "trades_per_week": 2.595307917888563,
+        "win_rate": 25.423728813559322,
+        "annual_return": 5.083784258623458,
+        "meets_criteria": false,
+        "test_days": 341,
+        "test_bars": 7786,
+        "params": {
+          "long_only": true,
+          "use_zscore": true,
+          "require_bb": false,
+          "bb_period": 14,
+          "bb_std": 2.4989122406966997,
+          "atr_sl_mult": 0.5452960187637192,
+          "atr_tp_mult": 2.0356758278756564,
+          "min_bb_width": 0.005046758118907514,
+          "use_stochastic": false,
+          "max_adx": 69.57588266029782,
+          "zscore_threshold": 2.3532425845309324
+        }
+      },
+      "volatility": {
+        "sharpe": 0.255894127960398,
+        "pf": 1.04907132722543,
+        "maxdd": 13.950774165327593,
+        "trades": 204,
+        "trades_per_week": 2.9912023460410557,
+        "win_rate": 37.745098039215684,
+        "annual_return": 1.926228776982164,
+        "meets_criteria": false,
+        "test_days": 341,
+        "test_bars": 7781,
+        "params": {
+          "squeeze_lookback": 9,
+          "atr_sl_mult": 1.6279962100942635,
+          "atr_tp_mult": 3.389135623653369,
+          "vol_ratio_threshold": 0.8173800769488041,
+          "bb_period": 18,
+          "kc_period": 18,
+          "bb_mult": 1.517255378989339,
+          "kc_mult": 1.0029710796676785
+        }
+      }
+    }
+  }
+}

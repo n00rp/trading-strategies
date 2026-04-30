@@ -1,0 +1,702 @@
+{
+  "30m": {
+    "nasdaq": {
+      "trend": {
+        "sharpe": 1.4900284192073985,
+        "pf": 1.1409930822042964,
+        "maxdd": 18.806234062330418,
+        "trades": 1002,
+        "trades_per_week": 14.396551724137932,
+        "win_rate": 62.17564870259481,
+        "annual_return": 30.577792985986065,
+        "sortino": 2.362716845363153,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 15830,
+        "missed_trades": 5090,
+        "missed_avg_move_pct": 1.1868101885540687,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 190
+          },
+          {
+            "reason": "adx(13.9)<=19.559782039866484",
+            "count": 14
+          },
+          {
+            "reason": "adx(17.2)<=19.559782039866484",
+            "count": 14
+          },
+          {
+            "reason": "adx(14.3)<=19.559782039866484",
+            "count": 14
+          },
+          {
+            "reason": "adx(15.9)<=19.559782039866484",
+            "count": 12
+          }
+        ]
+      },
+      "mean_reversion": {
+        "sharpe": 1.1111924570375544,
+        "pf": 1.1483911411934598,
+        "maxdd": 7.609323181273934,
+        "trades": 959,
+        "trades_per_week": 13.77873563218391,
+        "win_rate": 17.622523461939522,
+        "annual_return": 11.649638029722297,
+        "sortino": 5.363910441279777,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 15832,
+        "missed_trades": 7531,
+        "missed_avg_move_pct": 1.1574683110140505,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 100
+          },
+          {
+            "reason": "zscore(0.84)>=-2.2935110960436322",
+            "count": 19
+          },
+          {
+            "reason": "zscore(0.59)<=2.2935110960436322",
+            "count": 18
+          },
+          {
+            "reason": "zscore(0.59)>=-2.2935110960436322",
+            "count": 17
+          },
+          {
+            "reason": "zscore(0.93)>=-2.2935110960436322",
+            "count": 16
+          }
+        ]
+      },
+      "volatility": {
+        "sharpe": 1.175235402325225,
+        "pf": 1.2290860059412545,
+        "maxdd": 8.242105347649916,
+        "trades": 249,
+        "trades_per_week": 3.577586206896552,
+        "win_rate": 48.19277108433735,
+        "annual_return": 14.511911819547452,
+        "sortino": 3.288641108847559,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 15828,
+        "missed_trades": 9160,
+        "missed_avg_move_pct": 1.166471806154534,
+        "missed_top_reasons": [
+          {
+            "reason": "no_breakout_above_donchian; no_squeeze_detected",
+            "count": 843
+          },
+          {
+            "reason": "no_breakout_below_donchian; no_squeeze_detected",
+            "count": 786
+          },
+          {
+            "reason": "no_squeeze_detected",
+            "count": 197
+          },
+          {
+            "reason": "no_breakout_below_donchian",
+            "count": 185
+          },
+          {
+            "reason": "no_breakout_above_donchian",
+            "count": 144
+          }
+        ]
+      }
+    },
+    "dax": {
+      "trend": {
+        "sharpe": 2.5575249103203546,
+        "pf": 1.2498786913977473,
+        "maxdd": 27.543440675244575,
+        "trades": 992,
+        "trades_per_week": 14.545454545454545,
+        "win_rate": 65.625,
+        "annual_return": 46.84830246158529,
+        "sortino": 3.5795577889981196,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 341,
+        "test_bars": 15523,
+        "missed_trades": 4242,
+        "missed_avg_move_pct": 1.00021105824466,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 187
+          },
+          {
+            "reason": "adx(16.1)<=19.559782039866484",
+            "count": 18
+          },
+          {
+            "reason": "adx(17.8)<=19.559782039866484",
+            "count": 15
+          },
+          {
+            "reason": "adx(15.5)<=19.559782039866484",
+            "count": 15
+          },
+          {
+            "reason": "adx(16.6)<=19.559782039866484",
+            "count": 15
+          }
+        ]
+      },
+      "mean_reversion": {
+        "sharpe": 0.3091852157491309,
+        "pf": 1.0396669316348224,
+        "maxdd": 10.70476206035542,
+        "trades": 814,
+        "trades_per_week": 11.935483870967742,
+        "win_rate": 16.830466830466833,
+        "annual_return": 2.041720323404239,
+        "sortino": 1.298761237248551,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 341,
+        "test_bars": 15525,
+        "missed_trades": 6396,
+        "missed_avg_move_pct": 1.0301982210282772,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 72
+          },
+          {
+            "reason": "zscore(0.96)>=-2.2935110960436322",
+            "count": 14
+          },
+          {
+            "reason": "zscore(1.10)<=2.2935110960436322",
+            "count": 13
+          },
+          {
+            "reason": "zscore(0.91)>=-2.2935110960436322",
+            "count": 13
+          },
+          {
+            "reason": "zscore(1.15)>=-2.2935110960436322",
+            "count": 13
+          }
+        ]
+      },
+      "volatility": {
+        "sharpe": 0.9576038466891225,
+        "pf": 1.1944495150690735,
+        "maxdd": 6.334724244348118,
+        "trades": 238,
+        "trades_per_week": 3.5,
+        "win_rate": 46.21848739495798,
+        "annual_return": 10.846388600555667,
+        "sortino": 2.2408542098808217,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 340,
+        "test_bars": 15520,
+        "missed_trades": 7926,
+        "missed_avg_move_pct": 1.0472727840842826,
+        "missed_top_reasons": [
+          {
+            "reason": "no_breakout_above_donchian; no_squeeze_detected",
+            "count": 813
+          },
+          {
+            "reason": "no_breakout_below_donchian; no_squeeze_detected",
+            "count": 703
+          },
+          {
+            "reason": "no_breakout_above_donchian",
+            "count": 168
+          },
+          {
+            "reason": "no_squeeze_detected",
+            "count": 154
+          },
+          {
+            "reason": "no_breakout_below_donchian",
+            "count": 124
+          }
+        ]
+      }
+    },
+    "sp500": {
+      "trend": {
+        "sharpe": 1.5705241836781514,
+        "pf": 1.1611867671626828,
+        "maxdd": 17.42514636966773,
+        "trades": 939,
+        "trades_per_week": 13.49137931034483,
+        "win_rate": 63.0457933972311,
+        "annual_return": 25.233874038271043,
+        "sortino": 2.2621164500477273,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 15835,
+        "missed_trades": 3974,
+        "missed_avg_move_pct": 1.0477771562419407,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 146
+          },
+          {
+            "reason": "adx(16.2)<=19.559782039866484",
+            "count": 14
+          },
+          {
+            "reason": "adx(15.0)<=19.559782039866484",
+            "count": 14
+          },
+          {
+            "reason": "adx(17.2)<=19.559782039866484",
+            "count": 14
+          },
+          {
+            "reason": "adx(15.2)<=19.559782039866484",
+            "count": 13
+          }
+        ]
+      },
+      "mean_reversion": {
+        "sharpe": 0.764306071086769,
+        "pf": 1.113614460136119,
+        "maxdd": 8.093515398457901,
+        "trades": 797,
+        "trades_per_week": 11.451149425287356,
+        "win_rate": 16.4366373902133,
+        "annual_return": 6.01139642956825,
+        "sortino": 3.299808276317338,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 15837,
+        "missed_trades": 5860,
+        "missed_avg_move_pct": 1.047684292858894,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 70
+          },
+          {
+            "reason": "zscore(0.51)>=-2.2935110960436322",
+            "count": 12
+          },
+          {
+            "reason": "zscore(0.18)>=-2.2935110960436322",
+            "count": 11
+          },
+          {
+            "reason": "zscore(1.38)>=-2.2935110960436322",
+            "count": 11
+          },
+          {
+            "reason": "zscore(-1.04)<=2.2935110960436322",
+            "count": 10
+          }
+        ]
+      },
+      "volatility": {
+        "sharpe": -0.047541584779056456,
+        "pf": 0.9911620208318408,
+        "maxdd": 11.950880196425159,
+        "trades": 244,
+        "trades_per_week": 3.505747126436782,
+        "win_rate": 41.39344262295082,
+        "annual_return": -0.9335390984767877,
+        "sortino": -0.12669485417124454,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 15833,
+        "missed_trades": 6809,
+        "missed_avg_move_pct": 1.085671044733241,
+        "missed_top_reasons": [
+          {
+            "reason": "no_breakout_below_donchian; no_squeeze_detected",
+            "count": 653
+          },
+          {
+            "reason": "no_breakout_above_donchian; no_squeeze_detected",
+            "count": 595
+          },
+          {
+            "reason": "no_breakout_below_donchian",
+            "count": 136
+          },
+          {
+            "reason": "no_squeeze_detected",
+            "count": 134
+          },
+          {
+            "reason": "no_breakout_above_donchian",
+            "count": 89
+          }
+        ]
+      }
+    }
+  },
+  "1h": {
+    "nasdaq": {
+      "trend": {
+        "sharpe": 0.2854580442939901,
+        "pf": 1.025425214619576,
+        "maxdd": 20.629687079199726,
+        "trades": 981,
+        "trades_per_week": 14.094827586206899,
+        "win_rate": 39.85728848114169,
+        "annual_return": 3.039145681823019,
+        "sortino": 0.7440052773002722,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 7932,
+        "missed_trades": 3422,
+        "missed_avg_move_pct": 1.2817862981918582,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 116
+          },
+          {
+            "reason": "adx(20.2)<=21.33930990271515",
+            "count": 14
+          },
+          {
+            "reason": "adx(17.3)<=21.33930990271515",
+            "count": 11
+          },
+          {
+            "reason": "adx(14.3)<=21.33930990271515",
+            "count": 11
+          },
+          {
+            "reason": "adx(18.1)<=21.33930990271515",
+            "count": 10
+          }
+        ]
+      },
+      "mean_reversion": {
+        "sharpe": 1.9651096818367664,
+        "pf": 1.539524662161819,
+        "maxdd": 3.8526923029319176,
+        "trades": 219,
+        "trades_per_week": 3.1465517241379315,
+        "win_rate": 28.767123287671232,
+        "annual_return": 12.631248240127757,
+        "sortino": 9.628850357255928,
+        "meets_strict": true,
+        "meets_epsilon": true,
+        "test_days": 348,
+        "test_bars": 7935,
+        "missed_trades": 6059,
+        "missed_avg_move_pct": 1.316008164661831,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 50
+          },
+          {
+            "reason": "long_only_mode",
+            "count": 45
+          },
+          {
+            "reason": "zscore(1.05)>=-2.3532425845309324",
+            "count": 18
+          },
+          {
+            "reason": "zscore(0.69)<=2.3532425845309324; long_only_mode",
+            "count": 17
+          },
+          {
+            "reason": "zscore(0.76)>=-2.3532425845309324",
+            "count": 16
+          }
+        ]
+      },
+      "volatility": {
+        "sharpe": 0.26239640919662005,
+        "pf": 1.054903004358636,
+        "maxdd": 15.293589645310792,
+        "trades": 189,
+        "trades_per_week": 2.7155172413793105,
+        "win_rate": 35.978835978835974,
+        "annual_return": 2.2349943432970365,
+        "sortino": 0.6574751255692501,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 7930,
+        "missed_trades": 5814,
+        "missed_avg_move_pct": 1.3202548421260283,
+        "missed_top_reasons": [
+          {
+            "reason": "no_breakout_above_donchian; no_squeeze_detected",
+            "count": 1315
+          },
+          {
+            "reason": "no_breakout_below_donchian; no_squeeze_detected",
+            "count": 1303
+          },
+          {
+            "reason": "no_breakout_below_donchian",
+            "count": 518
+          },
+          {
+            "reason": "no_breakout_above_donchian",
+            "count": 394
+          },
+          {
+            "reason": "no_squeeze_detected",
+            "count": 227
+          }
+        ]
+      }
+    },
+    "dax": {
+      "trend": {
+        "sharpe": -0.05362766273434225,
+        "pf": 0.9954313644347187,
+        "maxdd": 14.066469659371418,
+        "trades": 978,
+        "trades_per_week": 14.340175953079179,
+        "win_rate": 41.8200408997955,
+        "annual_return": -1.3114448253119804,
+        "sortino": -0.12329022262817262,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 341,
+        "test_bars": 7782,
+        "missed_trades": 3202,
+        "missed_avg_move_pct": 1.2021990630467645,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 110
+          },
+          {
+            "reason": "adx(16.4)<=21.33930990271515",
+            "count": 12
+          },
+          {
+            "reason": "adx(14.9)<=21.33930990271515",
+            "count": 12
+          },
+          {
+            "reason": "adx(14.3)<=21.33930990271515",
+            "count": 12
+          },
+          {
+            "reason": "adx(15.8)<=21.33930990271515",
+            "count": 11
+          }
+        ]
+      },
+      "mean_reversion": {
+        "sharpe": 0.8279133913144788,
+        "pf": 1.24416774155128,
+        "maxdd": 3.442776160123559,
+        "trades": 177,
+        "trades_per_week": 2.595307917888563,
+        "win_rate": 24.293785310734464,
+        "annual_return": 4.152564538934644,
+        "sortino": 4.2059473589110565,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 341,
+        "test_bars": 7786,
+        "missed_trades": 5533,
+        "missed_avg_move_pct": 1.204517294493164,
+        "missed_top_reasons": [
+          {
+            "reason": "long_only_mode",
+            "count": 41
+          },
+          {
+            "reason": "unknown",
+            "count": 33
+          },
+          {
+            "reason": "zscore(0.99)<=2.3532425845309324; long_only_mode",
+            "count": 19
+          },
+          {
+            "reason": "zscore(1.06)<=2.3532425845309324; long_only_mode",
+            "count": 18
+          },
+          {
+            "reason": "zscore(1.03)<=2.3532425845309324; long_only_mode",
+            "count": 16
+          }
+        ]
+      },
+      "volatility": {
+        "sharpe": 0.255894127960398,
+        "pf": 1.04907132722543,
+        "maxdd": 13.950774165327593,
+        "trades": 204,
+        "trades_per_week": 2.9912023460410557,
+        "win_rate": 37.745098039215684,
+        "annual_return": 1.926228776982164,
+        "sortino": 0.5965618749481171,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 341,
+        "test_bars": 7781,
+        "missed_trades": 4634,
+        "missed_avg_move_pct": 1.2607454388553123,
+        "missed_top_reasons": [
+          {
+            "reason": "no_breakout_above_donchian; no_squeeze_detected",
+            "count": 1120
+          },
+          {
+            "reason": "no_breakout_below_donchian; no_squeeze_detected",
+            "count": 1063
+          },
+          {
+            "reason": "no_breakout_above_donchian",
+            "count": 471
+          },
+          {
+            "reason": "no_breakout_below_donchian",
+            "count": 427
+          },
+          {
+            "reason": "no_squeeze_detected",
+            "count": 172
+          }
+        ]
+      }
+    },
+    "sp500": {
+      "trend": {
+        "sharpe": 0.24450578227095798,
+        "pf": 1.0223094019292178,
+        "maxdd": 11.271980296840447,
+        "trades": 988,
+        "trades_per_week": 14.195402298850576,
+        "win_rate": 40.08097165991903,
+        "annual_return": 2.145291615523792,
+        "sortino": 0.5898427208265385,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 7936,
+        "missed_trades": 2759,
+        "missed_avg_move_pct": 1.1034014974596478,
+        "missed_top_reasons": [
+          {
+            "reason": "unknown",
+            "count": 101
+          },
+          {
+            "reason": "adx(16.3)<=21.33930990271515",
+            "count": 10
+          },
+          {
+            "reason": "adx(18.3)<=21.33930990271515",
+            "count": 10
+          },
+          {
+            "reason": "adx(15.3)<=21.33930990271515",
+            "count": 10
+          },
+          {
+            "reason": "adx(17.0)<=21.33930990271515",
+            "count": 9
+          }
+        ]
+      },
+      "mean_reversion": {
+        "sharpe": 0.6558217554316333,
+        "pf": 1.1664527506412066,
+        "maxdd": 4.664332341323508,
+        "trades": 192,
+        "trades_per_week": 2.7507163323782238,
+        "win_rate": 22.916666666666664,
+        "annual_return": 2.822688842551613,
+        "sortino": 2.64930153611126,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 349,
+        "test_bars": 7939,
+        "missed_trades": 5167,
+        "missed_avg_move_pct": 1.1523467769520803,
+        "missed_top_reasons": [
+          {
+            "reason": "long_only_mode",
+            "count": 35
+          },
+          {
+            "reason": "unknown",
+            "count": 30
+          },
+          {
+            "reason": "zscore(0.94)<=2.3532425845309324; long_only_mode",
+            "count": 15
+          },
+          {
+            "reason": "zscore(0.94)>=-2.3532425845309324",
+            "count": 14
+          },
+          {
+            "reason": "zscore(0.89)<=2.3532425845309324; long_only_mode",
+            "count": 13
+          }
+        ]
+      },
+      "volatility": {
+        "sharpe": 0.7125193862972912,
+        "pf": 1.1480882686237084,
+        "maxdd": 11.366149245598853,
+        "trades": 208,
+        "trades_per_week": 2.988505747126437,
+        "win_rate": 37.980769230769226,
+        "annual_return": 5.924695954732195,
+        "sortino": 1.6359815029604006,
+        "meets_strict": false,
+        "meets_epsilon": false,
+        "test_days": 348,
+        "test_bars": 7934,
+        "missed_trades": 4384,
+        "missed_avg_move_pct": 1.1893083161002886,
+        "missed_top_reasons": [
+          {
+            "reason": "no_breakout_below_donchian; no_squeeze_detected",
+            "count": 947
+          },
+          {
+            "reason": "no_breakout_above_donchian; no_squeeze_detected",
+            "count": 940
+          },
+          {
+            "reason": "no_breakout_below_donchian",
+            "count": 420
+          },
+          {
+            "reason": "no_breakout_above_donchian",
+            "count": 360
+          },
+          {
+            "reason": "no_squeeze_detected",
+            "count": 143
+          }
+        ]
+      }
+    }
+  }
+}

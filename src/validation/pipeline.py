@@ -36,11 +36,21 @@ class PerformanceMetrics:
         min_sharpe: float = 1.2,
         min_pf: float = 1.5,
         max_dd: float = 15.0,
+        epsilon: float = 0.0,
     ) -> bool:
+        """Check if strategy meets OOS criteria with epsilon tolerance.
+
+        Args:
+            min_sharpe: Minimum Sharpe ratio.
+            min_pf: Minimum profit factor.
+            max_dd: Maximum drawdown percentage.
+            epsilon: Tolerance band. E.g. epsilon=0.05 means
+                Sharpe >= min_sharpe * (1 - 0.05), i.e. 5% slack.
+        """
         return (
-            self.sharpe_ratio >= min_sharpe
-            and self.profit_factor >= min_pf
-            and self.max_drawdown_pct <= max_dd
+            self.sharpe_ratio >= min_sharpe * (1 - epsilon)
+            and self.profit_factor >= min_pf * (1 - epsilon)
+            and self.max_drawdown_pct <= max_dd * (1 + epsilon)
         )
 
     def summary(self) -> str:
